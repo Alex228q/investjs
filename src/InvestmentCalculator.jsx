@@ -45,16 +45,18 @@ const STOCK_CONFIG = {
   SBER: { name: "Сбербанк", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
   YDEX: { name: "Yandex", lotSize: 1 },
+  NVTK: { name: "Новатэк", lotSize: 1 },
   X5: { name: "X5", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.25,
-  LKOH: 0.25,
-  PHOR: 0.2,
-  YDEX: 0.15,
-  X5: 0.15,
+  SBER: 0.2,
+  LKOH: 0.17,
+  NVTK: 0.15,
+  PHOR: 0.16,
+  YDEX: 0.16,
+  X5: 0.16,
 };
 
 const InvestmentCalculator = () => {
