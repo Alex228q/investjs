@@ -47,16 +47,20 @@ const STOCK_CONFIG = {
   YDEX: { name: "Yandex", lotSize: 1 },
   NVTK: { name: "Новатэк", lotSize: 1 },
   X5: { name: "X5", lotSize: 1 },
+  LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
+  T: { name: "Т Технологии", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
   SBER: 0.2,
-  LKOH: 0.17,
-  NVTK: 0.15,
-  PHOR: 0.16,
-  YDEX: 0.16,
-  X5: 0.16,
+  LKOH: 0.15,
+  PHOR: 0.15,
+  NVTK: 0.1,
+  X5: 0.1,
+  YDEX: 0.1,
+  LSNGP: 0.1,
+  T: 0.1,
 };
 
 const InvestmentCalculator = () => {
