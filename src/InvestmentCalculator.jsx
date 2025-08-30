@@ -49,18 +49,20 @@ const STOCK_CONFIG = {
   X5: { name: "X5", lotSize: 1 },
   LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   T: { name: "Т Технологии", lotSize: 1 },
+  TRNFP: { name: "Транснефть", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.2,
+  SBER: 0.15,
   LKOH: 0.15,
   PHOR: 0.15,
   NVTK: 0.1,
-  X5: 0.1,
-  YDEX: 0.1,
-  LSNGP: 0.1,
-  T: 0.1,
+  T: 0.11,
+  YDEX: 0.11,
+  X5: 0.11,
+  LSNGP: 0.06,
+  TRNFP: 0.06,
 };
 
 const InvestmentCalculator = () => {
