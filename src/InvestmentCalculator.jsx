@@ -50,19 +50,21 @@ const STOCK_CONFIG = {
   LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   T: { name: "Т Технологии", lotSize: 1 },
   PLZL: { name: "Полюс", lotSize: 1 },
+  TRNFP: { name: "Транснефть", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.15,
-  NVTK: 0.1,
   SBER: 0.15,
-  T: 0.1,
+  T: 0.09,
+  LKOH: 0.15,
   PHOR: 0.1,
-  YDEX: 0.1,
-  LSNGP: 0.1,
-  X5: 0.1,
-  PLZL: 0.1,
+  NVTK: 0.09,
+  PLZL: 0.08,
+  TRNFP: 0.08,
+  LSNGP: 0.08,
+  X5: 0.09,
+  YDEX: 0.09,
 };
 
 const InvestmentCalculator = () => {
