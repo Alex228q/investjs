@@ -44,31 +44,17 @@ const STOCK_CONFIG = {
   LKOH: { name: "Лукойл", lotSize: 1 },
   SBER: { name: "Сбербанк", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
-  YDEX: { name: "Yandex", lotSize: 1 },
-  NVTK: { name: "Новатэк", lotSize: 1 },
-  X5: { name: "X5", lotSize: 1 },
   LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
-  T: { name: "Т Технологии", lotSize: 1 },
   PLZL: { name: "Полюс", lotSize: 1 },
-  TRNFP: { name: "Транснефть", lotSize: 1 },
-  GMKN: { name: "Норникель", lotSize: 10 },
-  NLMK: { name: "НЛМК", lotSize: 10 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.15,
-  LKOH: 0.15,
-  T: 0.07,
-  PHOR: 0.07,
-  NVTK: 0.07,
-  PLZL: 0.07,
-  TRNFP: 0.07,
-  LSNGP: 0.07,
-  X5: 0.07,
-  YDEX: 0.07,
-  GMKN: 0.07,
-  NLMK: 0.07,
+  SBER: 0.2,
+  LKOH: 0.2,
+  PHOR: 0.2,
+  PLZL: 0.2,
+  LSNGP: 0.2,
 };
 
 const InvestmentCalculator = () => {
