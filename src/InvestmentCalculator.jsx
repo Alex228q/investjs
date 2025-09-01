@@ -52,21 +52,23 @@ const STOCK_CONFIG = {
   PLZL: { name: "Полюс", lotSize: 1 },
   TRNFP: { name: "Транснефть", lotSize: 1 },
   GMKN: { name: "Норникель", lotSize: 10 },
+  NLMK: { name: "НЛМК", lotSize: 10 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.14,
-  LKOH: 0.14,
-  T: 0.08,
-  PHOR: 0.08,
-  NVTK: 0.08,
-  PLZL: 0.08,
-  TRNFP: 0.08,
-  LSNGP: 0.08,
-  X5: 0.08,
-  YDEX: 0.08,
-  GMKN: 0.08,
+  SBER: 0.15,
+  LKOH: 0.15,
+  T: 0.07,
+  PHOR: 0.07,
+  NVTK: 0.07,
+  PLZL: 0.07,
+  TRNFP: 0.07,
+  LSNGP: 0.07,
+  X5: 0.07,
+  YDEX: 0.07,
+  GMKN: 0.07,
+  NLMK: 0.07,
 };
 
 const InvestmentCalculator = () => {
