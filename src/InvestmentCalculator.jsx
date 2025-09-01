@@ -46,17 +46,15 @@ const STOCK_CONFIG = {
   PHOR: { name: "Фосагро", lotSize: 1 },
   LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   PLZL: { name: "Полюс", lotSize: 1 },
-  NVTK: { name: "Новатэк", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.17,
-  LKOH: 0.17,
-  PHOR: 0.165,
-  PLZL: 0.165,
-  LSNGP: 0.165,
-  NVTK: 0.165,
+  SBER: 0.25,
+  LKOH: 0.25,
+  PHOR: 0.2,
+  PLZL: 0.2,
+  LSNGP: 0.1,
 };
 
 const InvestmentCalculator = () => {
