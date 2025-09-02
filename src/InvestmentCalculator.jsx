@@ -50,11 +50,11 @@ const STOCK_CONFIG = {
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.25,
-  LKOH: 0.25,
+  SBER: 0.2,
+  LKOH: 0.2,
   PHOR: 0.2,
   PLZL: 0.2,
-  LSNGP: 0.1,
+  LSNGP: 0.2,
 };
 
 const InvestmentCalculator = () => {
