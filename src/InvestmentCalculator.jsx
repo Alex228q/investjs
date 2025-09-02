@@ -48,17 +48,19 @@ const STOCK_CONFIG = {
   PLZL: { name: "Полюс", lotSize: 1 },
   YDEX: { name: "Яндекс", lotSize: 1 },
   X5: { name: "X5", lotSize: 1 },
+  NVTK: { name: "Новатэк", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.2,
-  LKOH: 0.2,
-  PHOR: 0.15,
-  PLZL: 0.15,
-  LSNGP: 0.1,
-  YDEX: 0.1,
-  X5: 0.1,
+  SBER: 0.15,
+  LKOH: 0.15,
+  PHOR: 0.13,
+  PLZL: 0.13,
+  LSNGP: 0.11,
+  YDEX: 0.11,
+  X5: 0.11,
+  NVTK: 0.11,
 };
 
 const InvestmentCalculator = () => {
