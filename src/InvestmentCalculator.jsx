@@ -46,7 +46,7 @@ const STOCK_CONFIG = {
   PHOR: { name: "Фосагро", lotSize: 1 },
   LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   PLZL: { name: "Полюс", lotSize: 1 },
-  SNGSP: { name: "Сургутнефтегаз", lotSize: 10 },
+  TRNFP: { name: "Транснефть", lotSize: 1 },
 };
 
 // Распределение акций
@@ -56,7 +56,7 @@ const STOCKS_DISTRIBUTION = {
   PHOR: 0.15,
   PLZL: 0.15,
   LSNGP: 0.15,
-  SNGSP: 0.15,
+  TRNFP: 0.15,
 };
 
 const InvestmentCalculator = () => {
