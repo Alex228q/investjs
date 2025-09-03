@@ -44,19 +44,15 @@ const STOCK_CONFIG = {
   LKOH: { name: "Лукойл", lotSize: 1 },
   SBER: { name: "Сбербанк", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
-  LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   PLZL: { name: "Полюс", lotSize: 1 },
-  TRNFP: { name: "Транснефть", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  SBER: 0.2,
-  LKOH: 0.2,
-  PHOR: 0.15,
-  PLZL: 0.15,
-  LSNGP: 0.15,
-  TRNFP: 0.15,
+  SBER: 0.25,
+  LKOH: 0.25,
+  PHOR: 0.25,
+  PLZL: 0.25,
 };
 
 const InvestmentCalculator = () => {
