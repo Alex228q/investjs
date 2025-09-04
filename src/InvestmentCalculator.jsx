@@ -52,13 +52,13 @@ const STOCK_CONFIG = {
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.15,
-  PHOR: 0.14,
-  PLZL: 0.14,
-  LSNGP: 0.14,
-  TRNFP: 0.14,
-  NVTK: 0.14,
-  SBERP: 0.15,
+  LKOH: 0.2,
+  PHOR: 0.12,
+  PLZL: 0.12,
+  LSNGP: 0.12,
+  TRNFP: 0.12,
+  NVTK: 0.12,
+  SBERP: 0.2,
 };
 
 const InvestmentCalculator = () => {
