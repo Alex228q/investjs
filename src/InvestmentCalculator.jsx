@@ -42,12 +42,12 @@ const NegativeText = styled("span")(({ theme }) => ({
 // Конфигурация акций
 const STOCK_CONFIG = {
   LKOH: { name: "Лукойл", lotSize: 1 },
-  SBERP: { name: "Сбербанк", lotSize: 1 },
-  PHOR: { name: "Фосагро", lotSize: 1 },
+  NVTK: { name: "Новатэк", lotSize: 1 },
   PLZL: { name: "Полюс", lotSize: 1 },
   LSNGP: { name: "Ленэнерго", lotSize: 10 },
+  SBERP: { name: "Сбербанк", lotSize: 1 },
   TRNFP: { name: "Транснефть", lotSize: 1 },
-  NVTK: { name: "Новатэк", lotSize: 1 },
+  PHOR: { name: "Фосагро", lotSize: 1 },
 };
 
 // Распределение акций
