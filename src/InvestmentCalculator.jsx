@@ -66,7 +66,7 @@ const InvestmentCalculator = () => {
   const [error, setError] = useState(null);
   const [stockPrices, setStockPrices] = useState({});
   const [purchaseAmount, setPurchaseAmount] = useState("");
-  const [currentInvestments, setCurrentInvestments] = useState(
+  const [currentShares, setCurrentShares] = useState(
     Object.keys(STOCK_CONFIG).reduce((acc, ticker) => {
       acc[ticker] = "";
       return acc;
@@ -124,20 +124,44 @@ const InvestmentCalculator = () => {
     }
   };
 
-  const handleInvestmentChange = (ticker, value) => {
-    setCurrentInvestments((prev) => ({
-      ...prev,
-      [ticker]: value,
-    }));
+  const handleSharesChange = (ticker, value) => {
+    // Разрешаем только цифры и пустую строку
+    if (value === "" || /^\d+$/.test(value)) {
+      setCurrentShares((prev) => ({
+        ...prev,
+        [ticker]: value,
+      }));
+    }
+  };
+
+  // Функция для расчета стоимости акций
+  const calculateSharesCost = (ticker, shares) => {
+    const sharesCount = parseInt(shares) || 0;
+    const price = stockPrices[ticker] || 0;
+    return sharesCount * price;
+  };
+
+  // Функция для преобразования количества акций в лоты
+  const sharesToLots = (ticker, shares) => {
+    const sharesCount = parseInt(shares) || 0;
+    const lotSize = STOCK_CONFIG[ticker].lotSize;
+    return Math.floor(sharesCount / lotSize);
+  };
+
+  // Функция для преобразования лотов в акции
+  const lotsToShares = (ticker, lots) => {
+    const lotsCount = parseInt(lots) || 0;
+    const lotSize = STOCK_CONFIG[ticker].lotSize;
+    return lotsCount * lotSize;
   };
 
   const calculatePurchase = () => {
     const amount = parseFloat(purchaseAmount) || 0;
 
-    // Получаем суммы уже купленных акций
-    const currentValues = Object.entries(currentInvestments).reduce(
-      (acc, [ticker, value]) => {
-        acc[ticker] = parseFloat(value) || 0;
+    // Рассчитываем стоимость уже купленных акций на основе количества штук
+    const currentValues = Object.entries(currentShares).reduce(
+      (acc, [ticker, shares]) => {
+        acc[ticker] = calculateSharesCost(ticker, shares);
         return acc;
       },
       {}
@@ -250,6 +274,7 @@ const InvestmentCalculator = () => {
       totalStocksCost,
       totalPortfolioAfter,
       totalCurrentInvestments,
+      currentValues, // Добавляем для отображения в результатах
     });
   };
 
@@ -284,15 +309,23 @@ const InvestmentCalculator = () => {
         )}
 
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
-          {Object.entries(STOCK_CONFIG).map(([ticker, { name }]) => (
-            <Card key={ticker} variant="outlined" sx={{ p: 1, minWidth: 120 }}>
+          {Object.entries(STOCK_CONFIG).map(([ticker, { name, lotSize }]) => (
+            <Card key={ticker} variant="outlined" sx={{ p: 1, minWidth: 140 }}>
               <Typography variant="body2" color="text.secondary">
                 {name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Лот: {lotSize} шт.
               </Typography>
               <Typography variant="body1" fontWeight="bold">
                 {stockPrices[ticker]
                   ? `${stockPrices[ticker].toFixed(2)} руб.`
                   : "Н/Д"}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {stockPrices[ticker] && lotSize > 1
+                  ? `Лот: ${(stockPrices[ticker] * lotSize).toFixed(2)} руб.`
+                  : ""}
               </Typography>
             </Card>
           ))}
@@ -316,7 +349,9 @@ const InvestmentCalculator = () => {
           }}
         />
 
-        <SectionTitle variant="h6">Уже купленные акции:</SectionTitle>
+        <SectionTitle variant="h6">
+          Уже купленные акции (количество штук):
+        </SectionTitle>
 
         <Box
           sx={{
@@ -325,18 +360,41 @@ const InvestmentCalculator = () => {
             gap: 2,
           }}
         >
-          {Object.entries(STOCK_CONFIG).map(([ticker, { name }]) => (
-            <TextField
-              key={ticker}
-              label={name}
-              type="number"
-              value={currentInvestments[ticker]}
-              onChange={(e) => handleInvestmentChange(ticker, e.target.value)}
-              InputProps={{
-                endAdornment: "руб.",
-              }}
-            />
-          ))}
+          {Object.entries(STOCK_CONFIG).map(([ticker, { name, lotSize }]) => {
+            const approximateCost = calculateSharesCost(
+              ticker,
+              currentShares[ticker]
+            );
+            const sharesCount = parseInt(currentShares[ticker]) || 0;
+            const lotsCount = sharesToLots(ticker, currentShares[ticker]);
+
+            return (
+              <TextField
+                key={ticker}
+                label={`${name}${lotSize > 1 ? ` (лот: ${lotSize} шт.)` : ""}`}
+                type="text"
+                value={currentShares[ticker]}
+                onChange={(e) => handleSharesChange(ticker, e.target.value)}
+                InputProps={{
+                  inputProps: { min: 0 },
+                }}
+                helperText={
+                  stockPrices[ticker] && currentShares[ticker] ? (
+                    <Box>
+                      <div>≈ {approximateCost.toFixed(0)} руб.</div>
+                      {lotSize > 1 && sharesCount > 0 && (
+                        <div>
+                          {lotsCount} лотов ({sharesCount} шт.)
+                        </div>
+                      )}
+                    </Box>
+                  ) : (
+                    ""
+                  )
+                }
+              />
+            );
+          })}
         </Box>
 
         <Button
@@ -364,10 +422,16 @@ const InvestmentCalculator = () => {
                 const lotSize = STOCK_CONFIG[ticker].lotSize;
                 const name = STOCK_CONFIG[ticker].name;
                 const cost = lots * lotSize * price;
+                const sharesToBuy = lots * lotSize;
 
                 // Сумма старых инвестиций в эту акцию
                 const currentAmount =
-                  parseFloat(currentInvestments[ticker]) || 0;
+                  calculationResult.currentValues[ticker] || 0;
+                const currentSharesCount = parseInt(currentShares[ticker]) || 0;
+                const currentLotsCount = sharesToLots(
+                  ticker,
+                  currentShares[ticker]
+                );
 
                 // Целевой процент
                 const idealPercentage = STOCKS_DISTRIBUTION[ticker] * 100;
@@ -390,8 +454,9 @@ const InvestmentCalculator = () => {
                         secondary={
                           <Box component="span">
                             <Typography variant="body2" color="text.primary">
-                              Цена: {price.toFixed(2)} руб. (лот: {lotSize} шт.)
+                              Цена за акцию: {price.toFixed(2)} руб.
                             </Typography>
+
                             <Typography variant="body2" color="text.primary">
                               Идеал: {idealPercentage.toFixed(1)}% • Факт:{" "}
                               {actualPercentage.toFixed(1)}%
@@ -405,16 +470,18 @@ const InvestmentCalculator = () => {
                             >
                               Отклонение: {deviation.toFixed(1)}%
                             </Typography>
-                            <Typography variant="body2" color="text.primary">
-                              Текущие: {currentAmount.toFixed(0)} руб. • Новые:{" "}
-                              {cost.toFixed(0)} руб.
-                            </Typography>
                           </Box>
                         }
                       />
-                      <Typography variant="h6" fontWeight="bold">
-                        {cost.toFixed(2)} руб.
-                      </Typography>
+                      <Box sx={{ textAlign: "right" }}>
+                        <Typography
+                          variant="body1"
+                          fontWeight="bold"
+                          color="text.primary"
+                        >
+                          Стоимость: {cost.toFixed(0)} руб.
+                        </Typography>
+                      </Box>
                     </ListItem>
                     <Divider variant="inset" component="li" />
                   </React.Fragment>
