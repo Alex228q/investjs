@@ -41,10 +41,10 @@ const NegativeText = styled("span")(({ theme }) => ({
 
 // Конфигурация акций
 const STOCK_CONFIG = {
+  X5: { name: "X5", lotSize: 1 },
   LKOH: { name: "Лукойл", lotSize: 1 },
   LSNGP: { name: "Ленэнерго", lotSize: 10 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
-  TRNFP: { name: "Транснефть", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
 };
 
@@ -53,7 +53,7 @@ const STOCKS_DISTRIBUTION = {
   LKOH: 0.2,
   PHOR: 0.2,
   LSNGP: 0.2,
-  TRNFP: 0.2,
+  X5: 0.2,
   SBERP: 0.2,
 };
 
