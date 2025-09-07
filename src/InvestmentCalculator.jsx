@@ -43,22 +43,18 @@ const NegativeText = styled("span")(({ theme }) => ({
 const STOCK_CONFIG = {
   X5: { name: "X5", lotSize: 1 },
   LKOH: { name: "Лукойл", lotSize: 1 },
-  NVTK: { name: "Новатэк", lotSize: 1 },
   LSNGP: { name: "Ленэнерго", lotSize: 10 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
-  TRNFP: { name: "Транснефть", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.17,
-  PHOR: 0.132,
-  LSNGP: 0.132,
-  TRNFP: 0.132,
-  X5: 0.132,
-  NVTK: 0.132,
-  SBERP: 0.17,
+  LKOH: 0.2,
+  PHOR: 0.2,
+  X5: 0.2,
+  LSNGP: 0.2,
+  SBERP: 0.2,
 };
 
 const InvestmentCalculator = () => {
