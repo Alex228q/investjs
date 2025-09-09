@@ -42,19 +42,17 @@ const NegativeText = styled("span")(({ theme }) => ({
 // Конфигурация акций
 const STOCK_CONFIG = {
   LKOH: { name: "Лукойл", lotSize: 1 },
-  MRKP: { name: "РСетиЦП", lotSize: 10000 },
+  LSNGP: { name: "ЛенЭнерго", lotSize: 10 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
-  TATNP: { name: "Татнефть", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.2,
-  PHOR: 0.2,
-  MRKP: 0.2,
-  TATNP: 0.2,
-  SBERP: 0.2,
+  LKOH: 0.25,
+  PHOR: 0.25,
+  LSNGP: 0.25,
+  SBERP: 0.25,
 };
 
 const InvestmentCalculator = () => {
