@@ -45,14 +45,18 @@ const STOCK_CONFIG = {
   MRKP: { name: "РСетиЦП", lotSize: 10000 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
+  SNGSP: { name: "Сургутнефтегаз", lotSize: 10 },
+  X5: { name: "X5", lotSize: 1 },
 };
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.25,
-  PHOR: 0.25,
-  MRKP: 0.25,
-  SBERP: 0.25,
+  LKOH: 0.2,
+  PHOR: 0.15,
+  MRKP: 0.15,
+  SNGSP: 0.15,
+  X5: 0.15,
+  SBERP: 0.2,
 };
 
 const InvestmentCalculator = () => {
