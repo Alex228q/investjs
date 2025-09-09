@@ -41,7 +41,6 @@ const NegativeText = styled("span")(({ theme }) => ({
 
 // Конфигурация акций
 const STOCK_CONFIG = {
-  X5: { name: "X5", lotSize: 1 },
   LKOH: { name: "Лукойл", lotSize: 1 },
   MRKP: { name: "РСетиЦП", lotSize: 10000 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
@@ -52,10 +51,9 @@ const STOCK_CONFIG = {
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
   LKOH: 0.2,
-  PHOR: 0.15,
-  MRKP: 0.15,
-  TATNP: 0.15,
-  X5: 0.15,
+  PHOR: 0.2,
+  MRKP: 0.2,
+  TATNP: 0.2,
   SBERP: 0.2,
 };
 
