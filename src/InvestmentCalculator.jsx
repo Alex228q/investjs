@@ -41,6 +41,7 @@ const NegativeText = styled("span")(({ theme }) => ({
 
 // Конфигурация акций
 const STOCK_CONFIG = {
+  X5: { name: "X5", lotSize: 1 },
   LKOH: { name: "Лукойл", lotSize: 1 },
   MRKC: { name: "Россети Центр", lotSize: 1000 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
@@ -49,10 +50,11 @@ const STOCK_CONFIG = {
 
 // Распределение акций
 const STOCKS_DISTRIBUTION = {
-  LKOH: 0.25,
-  PHOR: 0.25,
-  MRKC: 0.25,
-  SBERP: 0.25,
+  LKOH: 0.2,
+  PHOR: 0.2,
+  MRKC: 0.2,
+  X5: 0.2,
+  SBERP: 0.2,
 };
 
 const InvestmentCalculator = () => {
