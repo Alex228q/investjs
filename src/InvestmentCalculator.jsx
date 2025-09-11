@@ -45,6 +45,7 @@ const STOCK_CONFIG = {
   MRKC: { name: "Россети Центр", lotSize: 1000 },
   SBERP: { name: "Сбербанк", lotSize: 1 },
   PHOR: { name: "Фосагро", lotSize: 1 },
+
 };
 
 // Распределение акций
